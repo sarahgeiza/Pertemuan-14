@@ -27,10 +27,20 @@ public class Kafe26 {
         System.out.println("Silahkan pilih menu yang Anda inginkan.");
     }
 
-    public static int hitungTotalHarga(int pilihanMenu, int banyakItem) {
+    public static int hitungTotalHarga(int pilihanMenu, int banyakItem, String kodePromo) {
         int[] hargaItems = {15000, 20000, 22000, 12000, 10000, 18000};
 
         int hargaTotal = hargaItems[pilihanMenu - 1] * banyakItem;
+
+        if (kodePromo.equals("DISKON50")) {
+            System.out.println("Diskon 50% diterapkan!");
+            hargaTotal = hargaTotal - (hargaTotal * 50 / 100);
+        } else if (kodePromo.equals("DISKON30")) {
+            System.out.println("Diskon 30% diterapkan!");
+            hargaTotal = hargaTotal - (hargaTotal * 30 / 100);
+        } else {
+            System.out.println("Kode promo invalid! Tidak ada diskon.");
+        }
         return hargaTotal;
     }
 
@@ -38,15 +48,25 @@ public class Kafe26 {
         Scanner sc = new Scanner(System.in);
         Menu("Budi", true, "DISKON30");
 
-        System.out.print("\nMasukkan nomor menu yang ingin anda pesan: ");
-        int pilihanMenu = sc.nextInt();
-        System.out.print("Masukkan jumlah item yang ingin dipesan: ");
-        int banyakItem = sc.nextInt();
+         int totalKeseluruhan = 0;
+        String lanjut = "y";
 
-        int hargaTotal = hitungTotalHarga(pilihanMenu, banyakItem);
+        while (lanjut.equalsIgnoreCase("y")) {
+            System.out.print("\nMasukkan nomor menu yang ingin anda pesan: ");
+            int pilihanMenu = sc.nextInt();
+            System.out.print("Masukkan jumlah item yang ingin dipesan: ");
+            int banyakItem = sc.nextInt();
+            System.out.print("Masukkan kode promo (jika ada): ");
+            String kodePromo = sc.next();
 
-        System.out.println("Total harga untuk pesanan Anda: Rp" + hargaTotal);
+
+            int hargaTotal = hitungTotalHarga(pilihanMenu, banyakItem, kodePromo);
+            totalKeseluruhan += hargaTotal;
+
+            System.out.print("\nApakah Anda ingin memesan menu lain? (y/n): ");
+            lanjut = sc.next();
+        }
+            
+        System.out.println("Total harga untuk pesanan Anda: Rp" + totalKeseluruhan);
     }
-
-    
 }

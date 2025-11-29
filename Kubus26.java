@@ -11,10 +11,10 @@ public class Kubus26 {
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.print("Masukkan panjang sisi kubus: ");
-        int sisi = input.nextInt();
+        int sisi = sc.nextInt();
 
         System.out.println("Volume Kubus = " + hitungVolume(sisi));
         System.out.println("Luas Permukaan Kubus = " + hitungLuasPermukaan(sisi));

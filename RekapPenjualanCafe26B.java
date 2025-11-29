@@ -36,7 +36,7 @@ public class RekapPenjualanCafe26B {
 
     public static void tampilData() {
         System.out.println("\nREKAP DATA PENJUALAN");
-        System.out.printf("%-15s", "Menu");
+        System.out.printf("%-20s", "Menu");
 
         for (int h = 1; h <= jumlahHari; h++) {
             System.out.printf("Hari %d\t", h);
@@ -44,7 +44,7 @@ public class RekapPenjualanCafe26B {
         System.out.println();
 
         for (int i = 0; i < jumlahMenu; i++) {
-            System.out.printf("%-15s", menu[i]);
+            System.out.printf("%-20s", menu[i]);
             for (int j = 0; j < jumlahHari; j++) {
                 System.out.print(penjualan[i][j] + "\t");
             }
@@ -58,11 +58,9 @@ public class RekapPenjualanCafe26B {
 
         for (int i = 0; i < jumlahMenu; i++) {
             int total = 0;
-
             for (int j = 0; j < jumlahHari; j++) {
                 total += penjualan[i][j];
             }
-
             if (total > maxTotal) {
                 maxTotal = total;
                 menuTerlaris = menu[i];
@@ -75,14 +73,11 @@ public class RekapPenjualanCafe26B {
 
     public static void tampilRataRata() {
         System.out.println("\nRATA-RATA PENJUALAN PER MENU");
-
         for (int i = 0; i < jumlahMenu; i++) {
             int total = 0;
-
             for (int j = 0; j < jumlahHari; j++) {
                 total += penjualan[i][j];
             }
-
             double rata = total / (double) jumlahHari;
             System.out.println(menu[i] + " : " + rata);
         }

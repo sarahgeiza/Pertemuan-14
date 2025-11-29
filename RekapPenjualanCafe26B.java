@@ -36,17 +36,17 @@ public class RekapPenjualanCafe26B {
 
     public static void tampilData() {
         System.out.println("\nREKAP DATA PENJUALAN");
-        System.out.printf("%-20s", "Menu");
 
+        System.out.printf("%-20s", "Menu");
         for (int h = 1; h <= jumlahHari; h++) {
-            System.out.printf("Hari %d\t", h);
+            System.out.printf("%8s", "Hari " + h);
         }
         System.out.println();
 
         for (int i = 0; i < jumlahMenu; i++) {
-            System.out.printf("%-20s", menu[i]);
+            System.out.printf("%-20s", menu[i]);            
             for (int j = 0; j < jumlahHari; j++) {
-                System.out.print(penjualan[i][j] + "\t");
+                System.out.printf("%8d", penjualan[i][j]); 
             }
             System.out.println();
         }

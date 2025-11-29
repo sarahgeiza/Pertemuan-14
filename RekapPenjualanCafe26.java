@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class RekapPenjualanCafe26 {
 
-    static String[] menu = {"Kopi", "Teh", "Es Kelapa Muda", "Roti Bakar", "Gorengan"};
+    static String[] menu = {"Kopi", "Teh", "Es Kelapa Muda", "Roti Bakar", "Gorengan"
+    };
 
     static int[][] penjualan = new int[5][7];
 
